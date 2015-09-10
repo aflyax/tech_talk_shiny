@@ -12,6 +12,11 @@ shinyUI(fluidPage(
                     plugins = list('remove_button', 'drag_drop')
                   )
     )
+    
+    , selectizeInput(inputId = 'select_y',
+                     label = 'please select y',
+                     choices = names(dataset),
+                     multiple = FALSE)
   ),
   
   mainPanel('mainbar',
