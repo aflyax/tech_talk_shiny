@@ -10,8 +10,6 @@ shinyServer(function(input, output) {
   
   output$selected_data = DT::renderDataTable(
     {
-#       print('ehllo')
-      print(input$select_X)
       dataset[, match(unique(c(input$select_X,input$select_y)),
                       names(dataset)),
               with=F]
