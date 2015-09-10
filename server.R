@@ -21,7 +21,16 @@ shinyServer(function(input, output) {
   
   output$data_plot <- renderPlot(
     {
-      plot(dataset$carat, dataset$cut)
+      x_label = input$select_X[1]
+      y_label = input$select_y
+      
+      x = dataset[, get(x_label)]      # for data.table
+      y = dataset[, get(y_label)]
+      
+#       x = dataset[,x_label]         # for data.frame
+#       y = dataset[,y_label]
+      
+      plot(x = x, y = y, xlab = x_label, ylab = y_label)
     }
   )
   
