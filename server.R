@@ -34,5 +34,9 @@ shinyServer(function(input, output) {
     }
   )
   
+  output$model_text <- renderPrint({
+
+  })
+  
   
 })
