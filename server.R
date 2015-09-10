@@ -19,5 +19,11 @@ shinyServer(function(input, output) {
     , filter = 'top'
   )
   
+  output$data_plot <- renderPlot(
+    {
+      plot(dataset$carat, dataset$cut)
+    }
+  )
+  
   
 })
