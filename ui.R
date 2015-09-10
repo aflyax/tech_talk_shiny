@@ -3,23 +3,22 @@ shinyUI(fluidPage(
     'Shiny Tech Talk'
   ),
   sidebarPanel('sidebar',
-               selectizeInput(inputId = 'select_X',
-                              label = 'please select X',
-                              choices = names(dataset),
-                              select = names(dataset)[1:2],
-                              multiple = TRUE
-               )
-               
-               
-               
-               
-               
+    selectizeInput(inputId = 'select_X',
+                  label = 'please select X',
+                  choices = names(dataset),
+                  select = names(dataset)[1:2],
+                  multiple = TRUE
+    )
   ),
   
-  
-  
-  
-  mainPanel('mainbar')
+  mainPanel('mainbar',
+    tabsetPanel(
+      tabPanel(inputId = 'raw_data',
+               title = 'raw data'
+        
+      )
+    )       
+  )
   
 )
 )
