@@ -14,7 +14,8 @@ shinyUI(fluidPage(
   mainPanel('mainbar',
     tabsetPanel(
       tabPanel(inputId = 'raw_data',
-               title = 'raw data'
+               title = 'raw data',
+               dataTableOutput('raw_data')
       ),
       
       tabPanel(inputId = 'selected_data',
