@@ -37,7 +37,8 @@ shinyUI(fluidPage(
       ),
       
       tabPanel(inputId = 'model_output',
-               title = 'model output'
+               title = 'model output',
+               verbatimTextOutput("model_text")
       ),
       
       tabPanel(inputId = 'model_plot',
