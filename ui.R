@@ -7,7 +7,10 @@ shinyUI(fluidPage(
                   label = 'please select X',
                   choices = names(dataset),
                   select = names(dataset)[1:2],
-                  multiple = TRUE
+                  multiple = TRUE,
+                  options = list(
+                    plugins = list('remove_button', 'drag_drop')
+                  )
     )
   ),
   
