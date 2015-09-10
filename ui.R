@@ -42,7 +42,8 @@ shinyUI(fluidPage(
       ),
       
       tabPanel(inputId = 'model_plot',
-               title = 'model plot'
+               title = 'model plot',
+               plotOutput('coef_plot')
       )
     )
   )

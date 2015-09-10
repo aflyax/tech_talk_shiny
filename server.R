@@ -1,6 +1,7 @@
 shinyServer(function(input, output) {
   output$raw_data = DT::renderDataTable(
     {
+      print(dataset)
       dataset
     }
     , options = list(orderClasses = TRUE)
@@ -40,6 +41,17 @@ shinyServer(function(input, output) {
     model = glm(formula = formula_text, data = dataset)
     summary(model)
   })
+  
+  
+  output$coef_plot <- renderPlot(
+    {
+      formula_text = as.formula(paste(input$select_y, '~', paste(input$select_X, collapse = '+'), '-1'))
+      print(formula_text)
+      model = glm(formula = formula_text, data = dataset)
+      
+      coefplot(model)
+    }
+  )
   
   
 })

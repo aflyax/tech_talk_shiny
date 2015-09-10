@@ -1,6 +1,8 @@
 library(shiny)
 library(ggplot2)
-diamonds
+library(data.table)
+library(DT)
+library(arm)
 
 dataset = data.table(diamonds)
 # dataset = diamonds
