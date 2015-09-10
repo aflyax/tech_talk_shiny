@@ -15,6 +15,7 @@ shinyUI(fluidPage(
     
     , selectizeInput(inputId = 'select_y',
                      label = 'please select y',
+                     select = 'depth',
                      choices = names(dataset),
                      multiple = FALSE)
   ),
@@ -43,6 +44,7 @@ shinyUI(fluidPage(
       
       tabPanel(inputId = 'model_plot',
                title = 'model plot',
+               actionButton(inputId = 'plotButton', label='plot'),
                plotOutput('coef_plot')
       )
     )

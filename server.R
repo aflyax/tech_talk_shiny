@@ -36,22 +36,30 @@ shinyServer(function(input, output) {
   )
   
   output$model_text <- renderPrint({
-    formula_text = as.formula(paste(input$select_y, '~', paste(input$select_X, collapse = '+'), '-1'))
-    print(formula_text)
-    model = glm(formula = formula_text, data = dataset)
+    model <- get_model()
     summary(model)
   })
   
   
   output$coef_plot <- renderPlot(
     {
-      formula_text = as.formula(paste(input$select_y, '~', paste(input$select_X, collapse = '+'), '-1'))
-      print(formula_text)
-      model = glm(formula = formula_text, data = dataset)
+      input$plotButton
       
-      coefplot(model, xlab = input$select_y)
+      if (input$plotButton == 0)
+        return()
+      
+      isolate({
+        model <- get_model()
+        coefplot(model, xlab = input$select_y)
+      })
     }
   )
   
+  
+  get_model <- reactive({
+    formula_text = as.formula(paste(input$select_y, '~', paste(input$select_X, collapse = '+'), '-1'))
+    print(formula_text)
+    model = glm(formula = formula_text, data = dataset)
+  })
   
 })
