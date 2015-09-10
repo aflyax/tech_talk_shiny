@@ -49,7 +49,7 @@ shinyServer(function(input, output) {
       print(formula_text)
       model = glm(formula = formula_text, data = dataset)
       
-      coefplot(model)
+      coefplot(model, xlab = input$select_y)
     }
   )
   
